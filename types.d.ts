@@ -18,12 +18,12 @@ type TProductAttributes = {
 };
 
 type TProduct = {
-	id: TProductId;
+	id?: TProductId;
 	name: string;
-	sku: string;
+	sku?: string;
 	price: number;
 	image: Url;
-	attributes: TProductAttributes;
+	attributes?: TProductAttributes;
 };
 
 type TAPIAVODetailResponse = TProduct;

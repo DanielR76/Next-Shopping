@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import CardAvo from "@components/CardAvo";
 
 import type { NextPage } from "next";
 
@@ -13,14 +14,16 @@ const Home: NextPage = () => {
 	}, []);
 
 	return (
-		<div>
+		<>
 			{product?.map((element, id) => (
-				<div key={id}>
-					<div>{element?.name}</div>
-					<div>{element?.id}</div>
-				</div>
+				<CardAvo
+					key={id}
+					name={element?.name}
+					price={element?.price}
+					image={element?.image}
+				/>
 			))}
-		</div>
+		</>
 	);
 };
 
