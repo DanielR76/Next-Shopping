@@ -1,11 +1,11 @@
-import Navbar from "@components/Navbar";
+import { Navbar, Footer } from "../components";
 
 const Layout: React.FC = ({ children }) => {
 	return (
 		<>
 			<Navbar />
 			{children}
-			<footer>Aqí está el footer</footer>
+			<Footer />
 		</>
 	);
 };

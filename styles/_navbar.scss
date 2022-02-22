@@ -7,7 +7,8 @@ header {
 		display: flex;
 		justify-content: space-evenly;
 		margin-bottom: 15px;
-		background-color: $primary-color;
+		background-color: $bg-color-1;
+		box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
 
 		&-section {
 			display: flex;
@@ -15,19 +16,24 @@ header {
 			justify-content: center;
 			padding: 0 5px;
 			cursor: pointer;
+
+			.basket {
+				margin-left: 8px;
+			}
+
 			&:hover {
-				background-color: $secondary-color;
+				background-color: $bg-color-2;
 			}
 		}
 
 		&-anchor {
 			padding: 25px 0;
-			font-size: 1.4rem;
+			font-size: 1.6rem;
 			font-weight: 400;
 			line-height: 1.6rem;
-			text-align: center;
 			text-decoration: none;
-			color: $secondary-color-font;
+			color: $font-color-2;
+			text-align: center;
 		}
 	}
 }

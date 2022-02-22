@@ -1,0 +1,32 @@
+@import "./theme.scss";
+
+footer {
+	width: 100%;
+	height: auto;
+	margin-top: 20px;
+	padding: 30px 10px;
+	background-color: $bg-color-1;
+	box-shadow: 0 -1px 2px 0 rgba(34, 36, 38, 0.15);
+
+	section {
+		margin: 5px 0;
+		font-family: $font-fm-1;
+
+		h4 {
+			font-size: 1.5rem;
+			font-weight: 700;
+			line-height: 1.9rem;
+			color: $font-color-1;
+		}
+
+		a {
+			display: inline-block;
+			padding: 15px 0;
+			font-size: 1.6rem;
+			line-height: 1.8rem;
+			text-decoration: none;
+			color: $font-color-4;
+			cursor: pointer;
+		}
+	}
+}

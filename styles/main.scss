@@ -1,5 +1,6 @@
 @import "./theme.scss";
 @import "./navbar";
+@import "./footer";
 
 * {
 	box-sizing: border-box;
@@ -9,10 +10,6 @@
 
 html {
 	font-size: 62.5%;
-	font-family: $primary-font;
+	font-family: $font-fm-1;
 	scroll-behavior: smooth;
-}
-
-.container {
-	background-color: $secondary-color;
 }
