@@ -1,2 +1,13 @@
-$primary-color: blue;
-$secondary-color: green;
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat&display=swap");
+
+//Color
+$primary-color: gray;
+$secondary-color: salmon;
+
+//Font colors
+$primary-color-font: black;
+$secondary-color-font: rgba(255, 255, 255, 0.8);
+
+//Font family
+$primary-font: "DM Sans", sans-serif;
+$secondary-font: "Montserrat", sans-serif;
