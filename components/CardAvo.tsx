@@ -1,8 +1,15 @@
 import { Card, Grid } from "@nextui-org/react";
+import { useRouter } from "next/router";
 
-const CardAvo = ({ name, price, image }: TProduct) => {
+const CardAvo = ({ id, name, price, image }: TProduct) => {
+	const router = useRouter();
+
+	const goToProduct = () => {
+		router.push(`product/${id}`);
+	};
+
 	return (
-		<section className="container-card">
+		<section className="container-card" onClick={goToProduct}>
 			<Card bordered shadow={true} hoverable>
 				<Card.Image src={image} width="100%" height={250} css={{ p: 0 }} />
 				<Card.Footer>

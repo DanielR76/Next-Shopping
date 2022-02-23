@@ -6,9 +6,7 @@ import type { NextPage } from "next";
 const Product: NextPage = () => {
 	const [product, setProduct] = useState<TProduct>();
 	const router = useRouter();
-	const {
-		query: { id },
-	} = router;
+	const { id } = router.query;
 
 	useEffect(() => {
 		id &&

@@ -13,7 +13,7 @@ export const Navbar = () => {
 				</section>
 				<section className="nav-section">
 					<Basket size="45" />
-					<Link href="/shopping/123">
+					<Link href="/shopping">
 						<a className="nav-anchor basket">Shopping cart</a>
 					</Link>
 				</section>
