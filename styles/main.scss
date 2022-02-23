@@ -1,6 +1,8 @@
 @import "./theme.scss";
-@import "./navbar";
-@import "./footer";
+@import "./components/navbar";
+@import "./components/footer";
+@import "./pages/home";
+@import "./components/cardAvo";
 
 * {
 	box-sizing: border-box;

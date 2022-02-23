@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans&family=Montserrat&display=swap");
 
-//background-color
+//background color
 $bg-color-1: rgb(255, 255, 255);
 $bg-color-2: rgba(0, 0, 0, 0.05);
 
@@ -13,3 +13,42 @@ $font-color-4: rgb(30, 112, 191);
 //Font family
 $font-fm-1: "DM Sans", sans-serif;
 $font-fm-2: "Montserrat", sans-serif;
+
+//Size of devices
+$screen-xs-min: 576px;
+$screen-sm-min: 685px;
+$screen-md-min: 860px;
+$screen-lg-min: 992px;
+$screen-xl-min: 1024px;
+
+//Mixin queries
+@mixin xs {
+	@media (min-width: $screen-xs-min) {
+		@content;
+	}
+}
+@mixin sm {
+	@media (min-width: $screen-sm-min) {
+		@content;
+	}
+}
+@mixin md {
+	@media (min-width: $screen-md-min) {
+		@content;
+	}
+}
+@mixin lg {
+	@media (min-width: $screen-lg-min) {
+		@content;
+	}
+}
+@mixin xl {
+	@media (min-width: $screen-xl-min) {
+		@content;
+	}
+}
+@mixin custome($screen) {
+	@media (min-width: $screen) {
+		@content;
+	}
+}

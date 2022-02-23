@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 	}, []);
 
 	return (
-		<>
+		<main className="container">
 			{product?.map((element, id) => (
 				<CardAvo
 					key={id}
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
 					image={element?.image}
 				/>
 			))}
-		</>
+		</main>
 	);
 };
 
