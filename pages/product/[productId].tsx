@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const DinamicExample = () => {
 	const [product, setProduct] = useState<TProduct>();
@@ -18,8 +19,10 @@ const DinamicExample = () => {
 
 	return (
 		<main>
-			<div>DinamicExample</div>
-			<div>{product?.image}</div>
+			<figure>
+				<img src={product?.image} alt="avocado-image" />
+				<span>holis</span>
+			</figure>
 			<div>{product?.name}</div>
 			<div>{product?.price}</div>
 			<div>{product?.sku}</div>
