@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { Input, Button, Loading } from "@nextui-org/react";
+
 import Image from "next/image";
 
 const DinamicExample = () => {
@@ -15,39 +17,58 @@ const DinamicExample = () => {
 			.catch(console.log);
 	}, [productId]);
 
-	console.log(product);
-
 	return (
-		<main>
-			<figure>
-				<img src={product?.image} alt="avocado-image" />
-				<span>holis</span>
-			</figure>
-			<div>{product?.name}</div>
-			<div>{product?.price}</div>
-			<div>{product?.sku}</div>
-			<div>{product?.attributes?.description}</div>
-			<table>
-				<thead>
-					<tr>
-						<th>Attributes</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Shape</td>
-						<td>{product?.attributes?.shape}</td>
-					</tr>
-					<tr>
-						<td>Hardiness</td>
-						<td>{product?.attributes?.hardiness}</td>
-					</tr>
-					<tr>
-						<td>Taste</td>
-						<td>{product?.attributes?.taste}</td>
-					</tr>
-				</tbody>
-			</table>
+		<main className="product">
+			<section className="product-info">
+				<img
+					className="product-info--img"
+					src={product?.image}
+					alt="avocado-image"
+				/>
+
+				<div className="product-info--values">
+					<h3>{product?.name}</h3>
+					<p>{product?.price}</p>
+					<span>{product?.sku}</span>
+					<div className="product-info--quantity">
+						<Input type="number" />
+						<Button color="success">
+							{true ? (
+								"Add to cart"
+							) : (
+								<Loading type="points" color="white" size="sm" />
+							)}
+						</Button>
+					</div>
+				</div>
+			</section>
+			<section className="product-description">
+				<div className="product-description--text">
+					<h3>About this avocado</h3>
+					<p>{product?.attributes?.description}</p>
+				</div>
+				<table className="product-description--table">
+					<thead>
+						<tr>
+							<th>Attributes</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Shape</td>
+							<td>{product?.attributes?.shape}</td>
+						</tr>
+						<tr>
+							<td>Hardiness</td>
+							<td>{product?.attributes?.hardiness}</td>
+						</tr>
+						<tr>
+							<td>Taste</td>
+							<td>{product?.attributes?.taste}</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
 		</main>
 	);
 };
