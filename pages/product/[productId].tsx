@@ -29,10 +29,10 @@ const DinamicExample = () => {
 				<div className="product-info--values">
 					<h3>{product?.name}</h3>
 					<p>{product?.price}</p>
-					<span>{`SKU: ${product?.sku}`}</span>
+					<span className="product-info--values--sku">{`SKU: ${product?.sku}`}</span>
 					<div className="product-info--quantity">
-						<Input type="number" />
-						<Button color="success">
+						<Input type="number" size="xl" />
+						<Button size="xl" color="success" auto shadow>
 							{true ? (
 								"Add to cart"
 							) : (
