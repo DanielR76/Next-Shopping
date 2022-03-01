@@ -29,7 +29,7 @@ const DinamicExample = () => {
 				<div className="product-info--values">
 					<h3>{product?.name}</h3>
 					<p>{product?.price}</p>
-					<span>{product?.sku}</span>
+					<span>{`SKU: ${product?.sku}`}</span>
 					<div className="product-info--quantity">
 						<Input type="number" />
 						<Button color="success">
@@ -50,7 +50,9 @@ const DinamicExample = () => {
 				<table className="product-description--table">
 					<thead>
 						<tr>
-							<th>Attributes</th>
+							<th colSpan={2} className="table-top-left">
+								Attributes
+							</th>
 						</tr>
 					</thead>
 					<tbody>
