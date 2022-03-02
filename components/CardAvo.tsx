@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, Grid } from "@nextui-org/react";
 import { useRouter } from "next/router";
 
@@ -23,4 +24,4 @@ const CardAvo = ({ id, name, price, image }: TProduct) => {
 	);
 };
 
-export default CardAvo;
+export default React.memo(CardAvo);

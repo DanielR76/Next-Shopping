@@ -1,5 +1,5 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 
 export const Footer = () => {
 	return (
@@ -28,4 +28,4 @@ export const Footer = () => {
 	);
 };
 
-export default Footer;
+export default React.memo(Footer);

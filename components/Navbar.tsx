@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { Avocado, Basket } from "./SVGIcons";
 
@@ -22,4 +23,4 @@ export const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default React.memo(Navbar);

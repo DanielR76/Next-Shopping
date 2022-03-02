@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { Input, Button, Loading } from "@nextui-org/react";
 
-import Image from "next/image";
+// import Image from "next/image";
 
 const DinamicExample = () => {
 	const [product, setProduct] = useState<TProduct>();
+	const [quantity, setQuantity] = useState("1");
+	const refInput = useRef<any>(null);
 	const router = useRouter();
 	const path = "http://localhost:3000/";
 	const { productId } = router.query;
@@ -16,6 +18,14 @@ const DinamicExample = () => {
 			.then((resp) => setProduct(resp))
 			.catch(console.log);
 	}, [productId]);
+
+	const handleChange = useCallback(() => {
+		setQuantity(
+			Number(refInput.current.value) > 0 ? refInput.current.value : "1"
+		);
+	}, [refInput]);
+
+	const handleSubmit = () => {};
 
 	return (
 		<main className="product">
@@ -31,8 +41,20 @@ const DinamicExample = () => {
 					<p>{product?.price}</p>
 					<span className="product-info--values--sku">{`SKU: ${product?.sku}`}</span>
 					<div className="product-info--quantity">
-						<Input type="number" size="xl" />
-						<Button size="xl" color="success" auto shadow>
+						<Input
+							type="number"
+							size="xl"
+							ref={refInput}
+							value={quantity}
+							onChange={handleChange}
+						/>
+						<Button
+							size="xl"
+							color="success"
+							auto
+							shadow
+							onClick={handleSubmit}
+						>
 							{true ? (
 								"Add to cart"
 							) : (
