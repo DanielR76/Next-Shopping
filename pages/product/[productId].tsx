@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/router";
-import { Input, Button, Loading } from "@nextui-org/react";
+import { Input, Button } from "@nextui-org/react";
 
 // import Image from "next/image";
 
 const DinamicExample = () => {
 	const [product, setProduct] = useState<TProduct>();
-	const [quantity, setQuantity] = useState("1");
+	const [quantity, setQuantity] = useState<string>("1");
 	const refInput = useRef<any>(null);
 	const router = useRouter();
 	const path = "http://localhost:3000/";
@@ -55,11 +55,7 @@ const DinamicExample = () => {
 							shadow
 							onClick={handleSubmit}
 						>
-							{true ? (
-								"Add to cart"
-							) : (
-								<Loading type="points" color="white" size="sm" />
-							)}
+							Add to cart
 						</Button>
 					</div>
 				</div>
