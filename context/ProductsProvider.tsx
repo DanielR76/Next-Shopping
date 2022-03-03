@@ -15,7 +15,20 @@ const initialState = {
 const reducer = (state: any, action: any) => {
 	switch (action.type) {
 		case Types.Add:
-			return { ...state, cart: [...state.cart, action.payload] };
+			const position = state.cart?.findIndex(
+				(value) => value?.id === action?.payload?.id
+			);
+			let temp;
+			if (position >= 0) {
+				temp = [...state.cart];
+				temp[position].quantity += action.payload.quantity;
+			} else {
+				temp = [...state.cart.concat(action.payload)];
+			}
+			return {
+				...state,
+				cart: temp,
+			};
 		default:
 			return initialState;
 	}

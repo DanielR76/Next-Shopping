@@ -2,15 +2,19 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { Input, Button } from "@nextui-org/react";
 
+import { useAction } from "../../hooks/useAction";
+
 // import Image from "next/image";
 
 const DinamicExample = () => {
 	const [product, setProduct] = useState<TProduct>();
-	const [quantity, setQuantity] = useState<string>("1");
-	const refInput = useRef<any>(null);
+	const [quantity, setQuantity] = useState<number>(1);
+	const refInput = useRef<HTMLInputElement>(null);
+
 	const router = useRouter();
-	const path = "http://localhost:3000/";
+	const { addCart } = useAction();
 	const { productId } = router.query;
+	const path = "http://localhost:3000/";
 
 	useEffect(() => {
 		fetch(`${path}api/avo/${productId}`)
@@ -21,11 +25,13 @@ const DinamicExample = () => {
 
 	const handleChange = useCallback(() => {
 		setQuantity(
-			Number(refInput.current.value) > 0 ? refInput.current.value : "1"
+			Number(refInput.current.value) > 0 ? Number(refInput.current.value) : 1
 		);
 	}, [refInput]);
 
-	const handleSubmit = () => {};
+	const handleSubmit = () => {
+		addCart({ id: productId, quantity: quantity });
+	};
 
 	return (
 		<main className="product">
@@ -45,7 +51,7 @@ const DinamicExample = () => {
 							type="number"
 							size="xl"
 							ref={refInput}
-							value={quantity}
+							value={String(quantity)}
 							onChange={handleChange}
 						/>
 						<Button

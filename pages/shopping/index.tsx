@@ -1,16 +1,20 @@
-import { useAction } from "../../hooks/useAction";
+import { useContext } from "react";
+import { ProductsContext } from "../../context/ProductsProvider";
 
 const CartPage = () => {
-	const { addCart } = useAction();
-
-	const handleAdd = () => {
-		addCart({ id: "123", quantity: 5 });
-	};
+	const { productState } = useContext(ProductsContext);
+	const handleRemove = () => {};
 
 	return (
 		<>
 			<div>it`s hereee</div>
-			<button onClick={handleAdd}>Create</button>
+			{productState.cart?.map((element, index) => (
+				<div key={index}>
+					<div>{element.id}</div>
+					<div>{element.quantity}</div>
+				</div>
+			))}
+			<button onClick={handleRemove}>Create</button>
 		</>
 	);
 };
