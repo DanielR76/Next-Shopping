@@ -1,19 +1,16 @@
-import { useState, useEffect } from "react";
-
 import CardAvo from "@components/CardAvo";
 
-import type { NextPage } from "next";
+export const getStaticProps = async () => {
+	const response = await fetch("https://platzi-avo.vercel.app/api/avo");
+	const { data: product }: TAPIAvoResponse = await response.json();
+	return {
+		props: {
+			product,
+		},
+	};
+};
 
-const Home: NextPage = () => {
-	const [product, setProduct] = useState<TProduct[]>([]);
-
-	useEffect(() => {
-		window
-			.fetch("api/avo")
-			.then((response) => response.json())
-			.then((resp) => setProduct(resp.allEntries));
-	}, []);
-
+const Home = ({ product }: { product: TProduct[] }) => {
 	return (
 		<main className="container">
 			{product?.map((element, id) => (

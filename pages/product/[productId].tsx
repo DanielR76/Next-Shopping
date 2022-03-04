@@ -1,27 +1,39 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useRef, useState, useCallback } from "react";
 import { useRouter } from "next/router";
 import { Input, Button } from "@nextui-org/react";
 
 import { useAction } from "../../hooks/useAction";
+import { GetStaticProps, GetStaticPaths } from "next";
 
-// import Image from "next/image";
+export const getStaticPaths: GetStaticPaths = async () => {
+	const response = await fetch("https://platzi-avo.vercel.app/api/avo");
+	const { data }: TAPIAvoResponse = await response.json();
+	const paths = data.map(({ id }) => ({ params: { productId: id } }));
+	return {
+		paths,
+		fallback: false,
+	};
+};
 
-const DinamicExample = () => {
-	const [product, setProduct] = useState<TProduct>();
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+	const response = await fetch(
+		`https://platzi-avo.vercel.app/api/avo/${params?.productId}`
+	);
+	const product: TProduct = await response.json();
+	return {
+		props: {
+			product,
+		},
+	};
+};
+
+const DinamicExample = ({ product }) => {
 	const [quantity, setQuantity] = useState<number>(1);
 	const refInput = useRef<HTMLInputElement>(null);
 
 	const router = useRouter();
 	const { addCart } = useAction();
 	const { productId } = router.query;
-	const path = "http://localhost:3000/";
-
-	useEffect(() => {
-		fetch(`${path}api/avo/${productId}`)
-			.then((response) => response.json())
-			.then((resp) => setProduct(resp))
-			.catch(console.log);
-	}, [productId]);
 
 	const handleChange = useCallback(() => {
 		setQuantity(
