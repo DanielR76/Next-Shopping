@@ -4,6 +4,7 @@ import { Input, Button } from "@nextui-org/react";
 
 import { useAction } from "../../hooks/useAction";
 import { GetStaticProps, GetStaticPaths } from "next";
+import Image from "next/image";
 
 export const getStaticPaths: GetStaticPaths = async () => {
 	const response = await fetch("https://platzi-avo.vercel.app/api/avo");
@@ -48,10 +49,11 @@ const DinamicExample = ({ product }) => {
 	return (
 		<main className="product">
 			<section className="product-info">
-				<img
-					className="product-info--img"
+				<Image
 					src={product?.image}
 					alt="avocado-image"
+					width={320}
+					height={320}
 				/>
 
 				<div className="product-info--values">
