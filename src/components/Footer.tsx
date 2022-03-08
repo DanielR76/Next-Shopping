@@ -6,21 +6,21 @@ export const Footer = () => {
 		<footer>
 			<div className="footer-container">
 				<section>
-					<h4>Nosotros</h4>
+					<h4>About us</h4>
 					<Link href="/about">
-						<a>Conoce más</a>
+						<a>Know more</a>
 					</Link>
 				</section>
 				<section>
-					<h4>Servicios</h4>
+					<h4>Services</h4>
 					<Link href="/">
-						<a>Todos los prductos</a>
+						<a>All prducts</a>
 					</Link>
 				</section>
 				<section>
-					<h4>Hecho por</h4>
+					<h4>Made by</h4>
 					<a href="https://github.com/DanielR76">
-						Daniel <span className="footer-git" />
+						Daniel Rodriguez <span className="footer-git" />
 					</a>
 				</section>
 			</div>
