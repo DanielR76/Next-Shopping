@@ -43,7 +43,13 @@ const DinamicExample = ({ product }) => {
 	}, [refInput]);
 
 	const handleSubmit = () => {
-		addCart({ id: productId, quantity: quantity });
+		addCart({
+			id: productId,
+			name: product.name,
+			quantity: quantity,
+			image: product.image,
+			price: product.price,
+		});
 	};
 
 	return (

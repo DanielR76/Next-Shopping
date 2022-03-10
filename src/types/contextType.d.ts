@@ -4,5 +4,8 @@ type InitialStateType = {
 
 type CartType = {
 	id: string | string[];
+	name: string;
 	quantity: number;
+	image: string;
+	price: number;
 };
