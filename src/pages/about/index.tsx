@@ -32,9 +32,9 @@ const avoList = [
 const About = () => {
 	return (
 		<>
-			<section>
+			<section className="container-about">
 				<figure>
-					<h3>5 Surprising Facts About Avocados</h3>
+					<h3>Some surprising facts about avocados</h3>
 					<Image
 						src="/images/avocados.jpg"
 						alt="Avocados on a table"

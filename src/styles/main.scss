@@ -1,10 +1,11 @@
 @import "./theme.scss";
 @import "./components/navbar";
 @import "./components/footer";
-@import "./pages/home";
 @import "./components/cardAvo";
+@import "./pages/home";
 @import "./pages/product";
 @import "./pages/shopping";
+@import "./pages/about";
 
 * {
 	box-sizing: border-box;
