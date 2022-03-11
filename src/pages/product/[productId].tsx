@@ -50,6 +50,7 @@ const DinamicExample = ({ product }) => {
 			image: product.image,
 			price: product.price,
 		});
+		router.push("/shopping");
 	};
 
 	return (
