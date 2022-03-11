@@ -29,6 +29,16 @@ const reducer = (state: any, action: any) => {
 				...state,
 				cart: temp,
 			};
+		case Types.Remove:
+			return {
+				...state,
+				cart: state.cart.filter((val) => val.id !== action.payload),
+			};
+		case Types.Empty:
+			return {
+				...state,
+				cart: action.payload,
+			};
 		default:
 			return initialState;
 	}

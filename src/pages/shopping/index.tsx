@@ -1,13 +1,21 @@
 import { useContext } from "react";
 import { ProductsContext } from "../../context/ProductsProvider";
+import useAction from "hooks/useAction";
 
 import Image from "next/image";
 import { Button } from "@nextui-org/react";
 
 const CartPage = () => {
 	const { productState } = useContext(ProductsContext);
+	const { removeToCart, emptyCart } = useAction();
 
-	const handleRemove = () => {};
+	const handleRemove = (id: string) => {
+		removeToCart(id);
+	};
+
+	const handleConfirm = () => {
+		emptyCart();
+	};
 
 	return (
 		<div className="cart">
@@ -33,7 +41,7 @@ const CartPage = () => {
 								color="error"
 								auto
 								size="xl"
-								onClick={handleRemove}
+								onClick={() => handleRemove(element.id)}
 							>
 								Remove
 							</Button>
@@ -43,7 +51,7 @@ const CartPage = () => {
 			</section>
 			<section className="section-subtotal">
 				<p>{`Sub total: ${10}`}</p>
-				<Button shadow color="success" size="xl" auto>
+				<Button shadow color="success" size="xl" auto onClick={handleConfirm}>
 					Check out
 				</Button>
 			</section>

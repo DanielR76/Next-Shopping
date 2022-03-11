@@ -12,14 +12,21 @@ export const useAction = () => {
 		});
 	};
 
-	const deleteCart = (payload: CartType) => {
+	const removeToCart = (payload: TProductId) => {
 		dispatch({
 			type: Types.Remove,
 			payload,
 		});
 	};
 
-	return { addCart, deleteCart };
+	const emptyCart = () => {
+		dispatch({
+			type: Types.Empty,
+			payload: [],
+		});
+	};
+
+	return { addCart, removeToCart, emptyCart };
 };
 
 export default useAction;

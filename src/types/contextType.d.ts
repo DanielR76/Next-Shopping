@@ -3,7 +3,7 @@ type InitialStateType = {
 };
 
 type CartType = {
-	id: string | string[];
+	id: string;
 	name: string;
 	quantity: number;
 	image: string;
