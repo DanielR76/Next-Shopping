@@ -1,6 +1,9 @@
 {
 	"name": "shopping",
 	"private": true,
+	"engine": {
+		"node": "17.0.16"
+	},
 	"scripts": {
 		"dev": "next dev",
 		"dev:debug": "npm --node-options=--inspect=0.0.0.0:9229 run dev",
